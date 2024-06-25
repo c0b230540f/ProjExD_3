@@ -3,6 +3,7 @@ import random
 import sys
 import time
 import pygame as pg
+x = 0
 
 
 WIDTH = 1100  # ゲームウィンドウの幅
@@ -152,6 +153,7 @@ def main():
     bombs = [Bomb((255, 0, 0), 10) for i in range(NUM_OF_BOMBS)]
     clock = pg.time.Clock()
     tmr = 0
+    bomrest = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -164,17 +166,28 @@ def main():
         for bomb in bombs:
             if bird.rct.colliderect(bomb.rct):
                 # ゲームオーバー時に，こうかとん画像を切り替え，1秒間表示させる
+                fonto = pg.font.Font(None, 80)
+                txt = fonto.render("Game Over", True, (255, 0, 0))
+                screen.blit(txt, [WIDTH/2-150, HEIGHT/2])
                 bird.change_img(8, screen)
                 pg.display.update()
                 time.sleep(1)
                 return
 
-        for i in range(len(bombs)):   
+        for i in range(len(bombs)):     
             if beam is not None:
                 if bombs[i].rct.colliderect(beam.rct):
                     bombs[i] = None
                     beam = None
                     bird.change_img(6, screen)
+                    bomrest += 1
+            #課題１
+            fonto = pg.font.Font(None, 50)
+            txt = fonto.render("score:"+ str(bomrest), True, (0, 0, 225))
+            screen.blit(txt, [100, HEIGHT-150])
+            
+            
+
         bombs = [bomb for bomb in bombs if bomb is not None]
 
         key_lst = pg.key.get_pressed()
