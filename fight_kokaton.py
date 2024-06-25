@@ -114,7 +114,7 @@ class Beam:
         #  elif pg.K_RIGHT:
         #      vmx = 5
         #      vmy = 0
-         self.vx, self.vy = (-5, 0)
+         self.vx, self.vy = (5, 0)
 
     def update(self, screen: pg.Surface):
         """
@@ -184,7 +184,7 @@ def main():
                 fonto = pg.font.Font(None, 80)
                 txt = fonto.render("Game Over", True, (255, 0, 0))
                 screen.blit(txt, [WIDTH/2-150, HEIGHT/2])
-                bird.change_img(8, screen)
+                bird.change_img(10, screen)
                 pg.display.update()
                 time.sleep(1)
                 return
