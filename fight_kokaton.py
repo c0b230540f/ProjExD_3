@@ -97,7 +97,7 @@ class Beam:
          """
         #  beamki_x = vmx
         #  beamki_y = vmy
-         self.img = pg.image.load(f"fig/beam.png")
+         self.img = pg.image.load(f"fig/beam.png") # こうかとん画像
          self.rct = self.img.get_rect()
          self.rct.centery = bird.rct.centery
          self.rct.left = bird.rct.right
@@ -161,7 +161,7 @@ class Bomb:
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))    
-    bg_img = pg.image.load("fig/pg_bg.jpg") # 背景画像
+    bg_img = pg.image.load("fig/pg_bg.jpg") #背景画像
     bird = Bird((300, 200))
     beam = None
     #bomb = Bomb((255, 0, 0), 10)
