@@ -95,11 +95,26 @@ class Beam:
          ビーム画像Surfaceを生成する
          引数 bird：ビームを放つこうかとん（Birdインスタンス）
          """
+        #  beamki_x = vmx
+        #  beamki_y = vmy
          self.img = pg.image.load(f"fig/beam.png")
          self.rct = self.img.get_rect()
          self.rct.centery = bird.rct.centery
          self.rct.left = bird.rct.right
-         self.vx, self.vy = +5, 0
+         #課題４
+        #  if pg.K_UP:
+        #      vmx = 0
+        #      vmy = -5
+        #  elif pg.K_DOWN:
+        #      vmx = 0
+        #      vmy = 5
+        #  elif pg.K_LEFT:
+        #      vmx = -5
+        #      vmy = 0
+        #  elif pg.K_RIGHT:
+        #      vmx = 5
+        #      vmy = 0
+         self.vx, self.vy = (-5, 0)
 
     def update(self, screen: pg.Surface):
         """
